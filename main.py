@@ -46,7 +46,7 @@ async def simulate_latency():
     return delay 
 
 # simulate error message 10% of the time
-async def simulate_error(error_rate = 0.1):
+def simulate_error(error_rate = 0.1):
     rand = random.random()
 
     # 40% are 500s
@@ -55,7 +55,7 @@ async def simulate_error(error_rate = 0.1):
     elif rand < error_rate * 0.7:
         raise HTTPException(status_code=503, detail ="Services temporarily unavailable")
     elif rand < error_rate:
-        raise HTTPException(status_code=504, detial = "Gateway timeout")
+        raise HTTPException(status_code=504, detail = "Gateway timeout")
 
 
 # model class for request/response validation
@@ -79,9 +79,9 @@ class DepartmentResponse(BaseModel):
 
 
 class ProjectResponse(BaseModel):
-    id:int
+    id: int
     name: str
-    departments: str
+    department: str
     status: str
     budget: int
     start_date: str
@@ -104,7 +104,7 @@ async def read_root():
 
 @app.get("/employees", response_model=List[EmployeeResponse])
 async def get_employees(
-    departmen: Optional[str] = Query(None, description="Filter by department"),
+    department: Optional[str] = Query(None, description="Filter by department"),
     limit: int = Query(10, ge=1, le=100, description="Limit number of results"),
     offset: int = Query(0, ge=0, description="Offset for pagination")
 ):
@@ -130,7 +130,7 @@ async def get_employees(
 
 
 #get employee by id
-@app.get("/employees{employee_id}", response_model = EmployeeResponse)
+@app.get("/employees/{employee_id}", response_model = EmployeeResponse)
 async def get_employee(employee_id: int):
     
     await simulate_latency()
@@ -159,7 +159,7 @@ async def get_employee_salary(employee_id: int):
 async def get_departments():
 
     await simulate_latency()
-    simulate_error(0.03) # 3% error rate
+    simulate_error(0.95) # 3% error rate
 
     return list(DEPARTMENTS_DATA.values())
 
