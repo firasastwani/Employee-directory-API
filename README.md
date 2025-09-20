@@ -174,19 +174,6 @@ The API simulates various real-world error scenarios:
 }
 ```
 
-## Agent Development Use Cases
-
-This API is perfect for testing:
-
-1. **Error Recovery**: How agents handle various HTTP error codes
-2. **Data Parsing**: Handling partial/missing data fields
-3. **Rate Limiting**: Dealing with variable response times
-4. **Search Logic**: Implementing fuzzy search across multiple data types
-5. **Pagination**: Handling large datasets with offset/limit
-6. **Monitoring**: Health checks and system statistics
-7. **Retry Logic**: Dealing with transient failures
-8. **Data Aggregation**: Combining data from multiple endpoints
-
 ## Configuration
 
 ### Error Rates by Endpoint
@@ -212,27 +199,6 @@ The API includes realistic sample data:
 - **5 projects** in various statuses
 - **Partial data** with missing phone numbers and manager relationships
 
-## Development
-
-### Adding New Endpoints
-
-1. Define Pydantic models for request/response validation
-2. Add sample data to the appropriate data dictionary
-3. Implement the endpoint with error simulation
-4. Update documentation
-
-### Customizing Error Rates
+## Customizing Error Rates
 
 Modify the `simulate_error()` function calls in each endpoint to adjust error frequencies for your testing needs.
-
-### Adding New Data Types
-
-1. Create new data dictionary
-2. Add corresponding Pydantic models
-3. Implement CRUD endpoints
-4. Update search functionality
-
-## License
-
-This project is designed for educational purposes in agent development and API testing.
-# Employee-directory-API
