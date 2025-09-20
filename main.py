@@ -155,11 +155,12 @@ async def get_employee_salary(employee_id: int):
     return employee
 
 
+# will always hit an error, used for testing handling
 @app.get("/departments", response_model=List[DepartmentResponse])
 async def get_departments():
 
     await simulate_latency()
-    simulate_error(0.95) # 3% error rate
+    simulate_error(1) 
 
     return list(DEPARTMENTS_DATA.values())
 

@@ -1,0 +1,458 @@
+{
+	"info": {
+		"_postman_id": "agent-learning-api-collection",
+		"name": "Agent Learning API",
+		"description": "Complete collection of endpoints for testing agent development scenarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Root",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "Root endpoint with API information"
+			}
+		},
+		{
+			"name": "Get All Employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/employees",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"employees"
+					]
+				},
+				"description": "Get list of all employees"
+			}
+		},
+		{
+			"name": "Get Employees - Filter by Department",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/employees?department=Engineering",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"employees"
+					],
+					"query": [
+						{
+							"key": "department",
+							"value": "Engineering",
+							"description": "Filter by department"
+						}
+					]
+				},
+				"description": "Get employees filtered by department"
+			}
+		},
+		{
+			"name": "Get Employees - Pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/employees?limit=5&offset=0",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"employees"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5",
+							"description": "Limit number of results"
+						},
+						{
+							"key": "offset",
+							"value": "0",
+							"description": "Offset for pagination"
+						}
+					]
+				},
+				"description": "Get employees with pagination"
+			}
+		},
+		{
+			"name": "Get Employee by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/employees/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"employees",
+						"1"
+					]
+				},
+				"description": "Get specific employee by ID"
+			}
+		},
+		{
+			"name": "Get Employee by ID (404 Test)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/employees/999",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"employees",
+						"999"
+					]
+				},
+				"description": "Test 404 error - Employee not found"
+			}
+		},
+		{
+			"name": "Get Employee Salary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/employees/1/salary",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"employees",
+						"1",
+						"salary"
+					]
+				},
+				"description": "Get employee salary information"
+			}
+		},
+		{
+			"name": "Get All Departments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/departments",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"departments"
+					]
+				},
+				"description": "Get all departments (100% error rate for testing)"
+			}
+		},
+		{
+			"name": "Get Department by Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/departments/Engineering",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"departments",
+						"Engineering"
+					]
+				},
+				"description": "Get specific department by name"
+			}
+		},
+		{
+			"name": "Get Department by Name (404 Test)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/departments/NonExistent",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"departments",
+						"NonExistent"
+					]
+				},
+				"description": "Test 404 error - Department not found"
+			}
+		},
+		{
+			"name": "Get All Projects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/projects",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"projects"
+					]
+				},
+				"description": "Get all projects"
+			}
+		},
+		{
+			"name": "Get Projects - Filter by Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/projects?status=active",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"projects"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "active",
+							"description": "Filter by status"
+						}
+					]
+				},
+				"description": "Get projects filtered by status"
+			}
+		},
+		{
+			"name": "Get Projects - Filter by Department",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/projects?department=Engineering",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"projects"
+					],
+					"query": [
+						{
+							"key": "department",
+							"value": "Engineering",
+							"description": "Filter by department"
+						}
+					]
+				},
+				"description": "Get projects filtered by department"
+			}
+		},
+		{
+			"name": "Get Project by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/projects/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"projects",
+						"1"
+					]
+				},
+				"description": "Get specific project by ID"
+			}
+		},
+		{
+			"name": "Get Project by ID (404 Test)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/projects/999",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"projects",
+						"999"
+					]
+				},
+				"description": "Test 404 error - Project not found"
+			}
+		},
+		{
+			"name": "Universal Search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/search?q=engineering",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "engineering",
+							"description": "Search query"
+						}
+					]
+				},
+				"description": "Universal search across all data types"
+			}
+		},
+		{
+			"name": "Search Employees Only",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/search?q=alice&type=employees",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "alice",
+							"description": "Search query"
+						},
+						{
+							"key": "type",
+							"value": "employees",
+							"description": "Search type"
+						}
+					]
+				},
+				"description": "Search employees only"
+			}
+		},
+		{
+			"name": "Search Departments Only",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/search?q=marketing&type=departments",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "marketing",
+							"description": "Search query"
+						},
+						{
+							"key": "type",
+							"value": "departments",
+							"description": "Search type"
+						}
+					]
+				},
+				"description": "Search departments only"
+			}
+		},
+		{
+			"name": "Search Projects Only",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/search?q=app&type=projects",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "app",
+							"description": "Search query"
+						},
+						{
+							"key": "type",
+							"value": "projects",
+							"description": "Search type"
+						}
+					]
+				},
+				"description": "Search projects only"
+			}
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/health",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"health"
+					]
+				},
+				"description": "Health check endpoint for monitoring"
+			}
+		},
+		{
+			"name": "System Statistics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/stats",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"stats"
+					]
+				},
+				"description": "Get system statistics"
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"description": "Base URL for the API"
+		}
+	]
+}
